@@ -30,3 +30,57 @@ public String search(@RequestBody String body){
      
 }
 }
+
+// ;
+
+
+// import com.fasterxml.jackson.core.JsonParser;
+// import com.fasterxml.jackson.core.type.TypeReference;
+// import org.springframework.web.bind.annotation.RequestMapping;
+// import org.springframework.web.bind.annotation.RestController;
+// import org.springframework.web.bind.annotation.*;
+// import com.fasterxml.jackson.databind.ObjectMapper;
+
+
+// import java.io.IOException;
+// import java.util.HashMap;
+// import java.util.Map;
+
+// @RestController
+// @CrossOrigin(origins = "http://localhost:4200")
+// public class CloudTrailResources {
+
+//     private String payload = "";
+//     @RequestMapping("/")
+//     public String index() {
+//         System.out.println("hello");
+//         return "Welcome to CloudTrail Logs";
+//     }
+
+//     @GetMapping("/blog/search")
+//     public String show(){
+//         System.out.println(payload);
+//         if(payload.length() > 0){
+//             return payload;
+//         }
+//         return "No data Found";
+//     }
+
+//     // make it so that it will consume JSON
+//     @PostMapping("/blog/search")
+//     public String search(@RequestBody Map<String, Object> body){
+
+//         Map<String,String> map = new HashMap<String,String>();
+//         ObjectMapper mapper = new ObjectMapper();
+
+//         try {
+//            map = mapper.readValue( body, new TypeReference<HashMap>(){});
+//         } catch (IOException e) {
+//             e.printStackTrace();
+//         }
+
+//         System.out.println(map);
+
+//         return map.toString();
+//     }
+// }
