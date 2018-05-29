@@ -33,7 +33,7 @@ public String search(@RequestBody String body){
 
 // ;
 
-package org.finra.resources;
+
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -93,3 +93,36 @@ public class CloudWatchResources {
         return map.toString();
     }
 }
+
+
+
+///////////////////
+
+
+
+public class GSONtest {
+    private String name;
+    private float age;
+
+
+    // Getter Methods
+
+    public String getName() {
+        return name;
+    }
+
+    public float getAge() {
+        return age;
+    }
+
+    // Setter Methods
+
+    public void setName( String name ) {
+        this.name = name;
+    }
+
+    public void setAge( float age ) {
+        this.age = age;
+    }
+}
+
