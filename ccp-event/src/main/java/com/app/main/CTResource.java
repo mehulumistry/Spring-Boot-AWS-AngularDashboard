@@ -33,54 +33,63 @@ public String search(@RequestBody String body){
 
 // ;
 
+package org.finra.resources;
 
-// import com.fasterxml.jackson.core.JsonParser;
-// import com.fasterxml.jackson.core.type.TypeReference;
-// import org.springframework.web.bind.annotation.RequestMapping;
-// import org.springframework.web.bind.annotation.RestController;
-// import org.springframework.web.bind.annotation.*;
-// import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.fasterxml.jackson.core.type.TypeReference;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 
-// import java.io.IOException;
-// import java.util.HashMap;
-// import java.util.Map;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
-// @RestController
-// @CrossOrigin(origins = "http://localhost:4200")
-// public class CloudTrailResources {
+@RestController
+@CrossOrigin(origins = "http://localhost:4200")
+public class CloudWatchResources {
 
-//     private String payload = "";
-//     @RequestMapping("/")
-//     public String index() {
-//         System.out.println("hello");
-//         return "Welcome to CloudTrail Logs";
-//     }
+    private String payload = "";
+    @RequestMapping("/")
+    public String index() {
+        System.out.println("hello");
+        return "Welcome to CloudTrail Logs";
+    }
 
-//     @GetMapping("/blog/search")
-//     public String show(){
-//         System.out.println(payload);
-//         if(payload.length() > 0){
-//             return payload;
-//         }
-//         return "No data Found";
-//     }
+    @GetMapping("/blog/search")
+    public String show(){
+        System.out.println(payload);
+        if(payload.length() > 0){
+            return payload;
+        }
+        return "No data Found";
+    }
 
-//     // make it so that it will consume JSON
-//     @PostMapping("/blog/search")
-//     public String search(@RequestBody Map<String, Object> body){
+    // make it so that it will consume JSON
+    @PostMapping("/blog/search")
+    public String search(@RequestBody String body){
 
-//         Map<String,String> map = new HashMap<String,String>();
-//         ObjectMapper mapper = new ObjectMapper();
+        Map<String,String> map = new HashMap<String,String>();
+        ObjectMapper mapper = new ObjectMapper();
 
-//         try {
-//            map = mapper.readValue( body, new TypeReference<HashMap>(){});
-//         } catch (IOException e) {
-//             e.printStackTrace();
-//         }
+        try {
+           map = mapper.readValue( body, new TypeReference<HashMap>(){});
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-//         System.out.println(map);
-
-//         return map.toString();
-//     }
-// }
+        payload=map.toString();
+        System.out.println(map);
+        String valueFromMap = null;
+       // use GSON
+        Gson gson = new GsonBuilder().create();
+        GSONtest p = gson.fromJson(body, GSONtest.class);
+        System.out.println(p.getAge());
+        System.out.println(p.getName());
+       
+        return map.toString();
+    }
+}
