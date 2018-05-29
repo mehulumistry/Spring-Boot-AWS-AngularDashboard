@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: ccp-event
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: apple
+Implementation-Vendor-Id: com.mehulmistry
+Build-Jdk: 1.8.0_131
+Implementation-URL: http://projects.spring.io/spring-boot/ccp-event/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+
